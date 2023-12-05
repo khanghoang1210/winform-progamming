@@ -1,0 +1,17 @@
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\bin\Debug\net7.0-windows\WinForms.exe
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\bin\Debug\net7.0-windows\WinForms.deps.json
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\bin\Debug\net7.0-windows\WinForms.runtimeconfig.json
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\bin\Debug\net7.0-windows\WinForms.dll
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\bin\Debug\net7.0-windows\WinForms.pdb
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\obj\Debug\net7.0-windows\WinForms.Login.resources
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\obj\Debug\net7.0-windows\WinForms.csproj.GenerateResource.cache
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\obj\Debug\net7.0-windows\WinForms.GeneratedMSBuildEditorConfig.editorconfig
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\obj\Debug\net7.0-windows\WinForms.AssemblyInfoInputs.cache
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\obj\Debug\net7.0-windows\WinForms.AssemblyInfo.cs
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\obj\Debug\net7.0-windows\WinForms.csproj.CoreCompileInputs.cache
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\obj\Debug\net7.0-windows\WinForms.dll
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\obj\Debug\net7.0-windows\refint\WinForms.dll
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\obj\Debug\net7.0-windows\WinForms.pdb
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\obj\Debug\net7.0-windows\WinForms.genruntimeconfig.cache
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\obj\Debug\net7.0-windows\ref\WinForms.dll
+D:\Data\VNU-HCMUS\dotnet\WinForms\WinForms\obj\Debug\net7.0-windows\WinForms.Properties.Resources.resources
