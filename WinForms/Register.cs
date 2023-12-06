@@ -34,7 +34,7 @@ namespace WinForms
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,6 +43,24 @@ namespace WinForms
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label10_Click(object sender, EventArgs e)
         {
 
         }
