@@ -32,9 +32,9 @@
             panel1 = new Panel();
             checkBox1 = new CheckBox();
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            button1 = new Button();
+            txtUserName = new TextBox();
+            txtPassword = new TextBox();
+            btnLogin = new Button();
             linkLabel1 = new LinkLabel();
             label2 = new Label();
             label3 = new Label();
@@ -69,31 +69,32 @@
             label1.TabIndex = 2;
             label1.Text = "LOGIN";
             // 
-            // textBox1
+            // txtUserName
             // 
-            textBox1.ForeColor = SystemColors.WindowFrame;
-            textBox1.Location = new Point(441, 161);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(304, 31);
-            textBox1.TabIndex = 3;
+            txtUserName.ForeColor = SystemColors.WindowFrame;
+            txtUserName.Location = new Point(441, 161);
+            txtUserName.Name = "txtUserName";
+            txtUserName.Size = new Size(304, 31);
+            txtUserName.TabIndex = 3;
+            txtUserName.TextChanged += textUserName;
             // 
-            // textBox2
+            // txtPassword
             // 
-            textBox2.ForeColor = SystemColors.WindowFrame;
-            textBox2.Location = new Point(441, 236);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(304, 31);
-            textBox2.TabIndex = 4;
+            txtPassword.ForeColor = SystemColors.WindowFrame;
+            txtPassword.Location = new Point(441, 236);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(304, 31);
+            txtPassword.TabIndex = 4;
             // 
-            // button1
+            // btnLogin
             // 
-            button1.Location = new Point(441, 356);
-            button1.Name = "button1";
-            button1.Size = new Size(304, 34);
-            button1.TabIndex = 5;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnLogin.Location = new Point(441, 356);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(304, 34);
+            btnLogin.TabIndex = 5;
+            btnLogin.Text = "Login";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += button1_Click;
             // 
             // linkLabel1
             // 
@@ -133,9 +134,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(linkLabel1);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(btnLogin);
+            Controls.Add(txtPassword);
+            Controls.Add(txtUserName);
             Controls.Add(label1);
             Controls.Add(checkBox1);
             Controls.Add(panel1);
@@ -153,9 +154,9 @@
         private Panel panel1;
         private CheckBox checkBox1;
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Button button1;
+        private TextBox txtUserName;
+        private TextBox txtPassword;
+        private Button btnLogin;
         private LinkLabel linkLabel1;
         private Label label2;
         private Label label3;
