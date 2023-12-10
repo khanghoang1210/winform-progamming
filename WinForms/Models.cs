@@ -57,11 +57,12 @@ namespace WinForms
         public string FlightType { get; set; }
         public string FromLocation { get; set; }
         public string ToLocation { get; set; }
+        public int Price { get; set; }
         public Flight()
         {
             FlightID = "Not Assigned";
         }
-        public Flight(string flightID, DateTime timeDepart, DateTime timeArrival, string flightType, string fromLocation, string toLocation)
+        public Flight(string flightID, DateTime timeDepart, DateTime timeArrival, string flightType, string fromLocation, string toLocation, int price)
         {
             FlightID = flightID;
             TimeDepart = timeDepart;
@@ -69,6 +70,7 @@ namespace WinForms
             FlightType = flightType;
             FromLocation = fromLocation;
             ToLocation = toLocation;
+            Price = price;
         }
     }
 

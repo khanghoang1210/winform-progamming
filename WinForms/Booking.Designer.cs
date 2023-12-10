@@ -46,21 +46,21 @@
             label6 = new Label();
             label8 = new Label();
             label9 = new Label();
-            numericUpDown1 = new NumericUpDown();
-            numericUpDown2 = new NumericUpDown();
-            numericUpDown3 = new NumericUpDown();
-            button1 = new Button();
+            Adult = new NumericUpDown();
+            Child = new NumericUpDown();
+            Infant = new NumericUpDown();
+            btnBook = new Button();
             label10 = new Label();
-            label11 = new Label();
+            lblTotal = new Label();
             ((System.ComponentModel.ISupportInitialize)flightBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)flightBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Adult).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Child).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Infant).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -90,14 +90,14 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 33;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(868, 468);
+            dataGridView1.Size = new Size(958, 468);
             dataGridView1.TabIndex = 2;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(952, 68);
+            label3.Location = new Point(1013, 73);
             label3.Name = "label3";
             label3.Size = new Size(126, 32);
             label3.TabIndex = 16;
@@ -107,7 +107,7 @@
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(952, 106);
+            comboBox1.Location = new Point(1013, 111);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(318, 33);
             comboBox1.TabIndex = 17;
@@ -116,7 +116,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(952, 162);
+            label2.Location = new Point(1013, 167);
             label2.Name = "label2";
             label2.Size = new Size(261, 32);
             label2.TabIndex = 18;
@@ -125,7 +125,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(952, 349);
+            pictureBox1.Location = new Point(1013, 354);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(37, 36);
             pictureBox1.TabIndex = 19;
@@ -135,7 +135,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(952, 283);
+            pictureBox2.Location = new Point(1013, 288);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(37, 36);
             pictureBox2.TabIndex = 20;
@@ -144,7 +144,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(952, 216);
+            pictureBox3.Location = new Point(1013, 221);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(37, 36);
             pictureBox3.TabIndex = 21;
@@ -154,7 +154,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(994, 206);
+            label4.Location = new Point(1055, 211);
             label4.Name = "label4";
             label4.Size = new Size(61, 28);
             label4.TabIndex = 22;
@@ -164,7 +164,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(994, 231);
+            label7.Location = new Point(1055, 236);
             label7.Name = "label7";
             label7.Size = new Size(134, 21);
             label7.TabIndex = 25;
@@ -174,7 +174,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(995, 298);
+            label5.Location = new Point(1056, 303);
             label5.Name = "label5";
             label5.Size = new Size(92, 21);
             label5.TabIndex = 27;
@@ -184,7 +184,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(995, 273);
+            label6.Location = new Point(1056, 278);
             label6.Name = "label6";
             label6.Size = new Size(58, 28);
             label6.TabIndex = 26;
@@ -194,7 +194,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(995, 364);
+            label8.Location = new Point(1056, 369);
             label8.Name = "label8";
             label8.Size = new Size(104, 21);
             label8.TabIndex = 29;
@@ -204,74 +204,77 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(995, 339);
+            label9.Location = new Point(1056, 344);
             label9.Name = "label9";
             label9.Size = new Size(66, 28);
             label9.TabIndex = 28;
             label9.Text = "Infant";
             // 
-            // numericUpDown1
+            // Adult
             // 
-            numericUpDown1.Location = new Point(1182, 221);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(88, 31);
-            numericUpDown1.TabIndex = 30;
+            Adult.Location = new Point(1243, 226);
+            Adult.Name = "Adult";
+            Adult.Size = new Size(88, 31);
+            Adult.TabIndex = 30;
+            Adult.ValueChanged += Adult_ValueChanged;
             // 
-            // numericUpDown2
+            // Child
             // 
-            numericUpDown2.Location = new Point(1182, 283);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(88, 31);
-            numericUpDown2.TabIndex = 31;
+            Child.Location = new Point(1243, 288);
+            Child.Name = "Child";
+            Child.Size = new Size(88, 31);
+            Child.TabIndex = 31;
+            Child.ValueChanged += Child_ValueChanged;
             // 
-            // numericUpDown3
+            // Infant
             // 
-            numericUpDown3.Location = new Point(1182, 349);
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(88, 31);
-            numericUpDown3.TabIndex = 32;
+            Infant.Location = new Point(1243, 354);
+            Infant.Name = "Infant";
+            Infant.Size = new Size(88, 31);
+            Infant.TabIndex = 32;
+            Infant.ValueChanged += Infant_ValueChanged;
             // 
-            // button1
+            // btnBook
             // 
-            button1.Location = new Point(1070, 500);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 33;
-            button1.Text = "Book";
-            button1.UseVisualStyleBackColor = true;
+            btnBook.Location = new Point(1131, 505);
+            btnBook.Name = "btnBook";
+            btnBook.Size = new Size(112, 34);
+            btnBook.TabIndex = 33;
+            btnBook.Text = "Book";
+            btnBook.UseVisualStyleBackColor = true;
+            btnBook.Click += btnBook_Click;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(1218, 421);
+            label10.Location = new Point(1279, 426);
             label10.Name = "label10";
             label10.Size = new Size(52, 21);
             label10.TabIndex = 35;
             label10.Text = "Totals:";
             // 
-            // label11
+            // lblTotal
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(1108, 442);
-            label11.Name = "label11";
-            label11.Size = new Size(162, 32);
-            label11.TabIndex = 34;
-            label11.Text = "10 000 000 đ";
-            label11.Click += label11_Click;
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTotal.Location = new Point(1197, 447);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(0, 32);
+            lblTotal.TabIndex = 34;
+            lblTotal.Click += lblTotalCost;
             // 
             // Booking
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1310, 581);
+            ClientSize = new Size(1401, 581);
             Controls.Add(label10);
-            Controls.Add(label11);
-            Controls.Add(button1);
-            Controls.Add(numericUpDown3);
-            Controls.Add(numericUpDown2);
-            Controls.Add(numericUpDown1);
+            Controls.Add(lblTotal);
+            Controls.Add(btnBook);
+            Controls.Add(Infant);
+            Controls.Add(Child);
+            Controls.Add(Adult);
             Controls.Add(label8);
             Controls.Add(label9);
             Controls.Add(label5);
@@ -295,9 +298,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Adult).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Child).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Infant).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -320,11 +323,11 @@
         private Label label6;
         private Label label8;
         private Label label9;
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown numericUpDown2;
-        private NumericUpDown numericUpDown3;
-        private Button button1;
+        private NumericUpDown Adult;
+        private NumericUpDown Child;
+        private NumericUpDown Infant;
+        private Button btnBook;
         private Label label10;
-        private Label label11;
+        private Label lblTotal;
     }
 }

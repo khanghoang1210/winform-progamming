@@ -83,8 +83,10 @@
             txtPassword.ForeColor = SystemColors.WindowFrame;
             txtPassword.Location = new Point(441, 236);
             txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(304, 31);
             txtPassword.TabIndex = 4;
+            txtPassword.TextChanged += txtPassword_TextChanged;
             // 
             // btnLogin
             // 
