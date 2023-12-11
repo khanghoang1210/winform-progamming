@@ -40,7 +40,6 @@
             txtPassword = new TextBox();
             txtCPassword = new TextBox();
             btnBrowse = new Button();
-            label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
@@ -62,7 +61,6 @@
             label1.Size = new Size(191, 54);
             label1.TabIndex = 0;
             label1.Text = "REGISTER";
-            label1.Click += label1_Click;
             // 
             // picAvatar
             // 
@@ -73,7 +71,6 @@
             picAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
             picAvatar.TabIndex = 1;
             picAvatar.TabStop = false;
-            picAvatar.Click += pictureBox1_Click;
             // 
             // linkLabel1
             // 
@@ -136,7 +133,6 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(210, 31);
             txtPassword.TabIndex = 10;
-            txtPassword.TextChanged += textBox7_TextChanged;
             // 
             // txtCPassword
             // 
@@ -145,26 +141,16 @@
             txtCPassword.Name = "txtCPassword";
             txtCPassword.Size = new Size(210, 31);
             txtCPassword.TabIndex = 11;
-            txtCPassword.TextChanged += textBox8_TextChanged;
             // 
             // btnBrowse
             // 
-            btnBrowse.Location = new Point(77, 398);
+            btnBrowse.Location = new Point(127, 379);
             btnBrowse.Name = "btnBrowse";
             btnBrowse.Size = new Size(144, 34);
             btnBrowse.TabIndex = 12;
-            btnBrowse.Text = "Choose image";
+            btnBrowse.Text = "Choose avatar";
             btnBrowse.UseVisualStyleBackColor = true;
             btnBrowse.Click += btnBrowse_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(236, 407);
-            label2.Name = "label2";
-            label2.Size = new Size(59, 25);
-            label2.TabIndex = 13;
-            label2.Text = "label2";
             // 
             // label3
             // 
@@ -192,7 +178,6 @@
             label5.Size = new Size(87, 25);
             label5.TabIndex = 16;
             label5.Text = "Password";
-            label5.Click += label5_Click;
             // 
             // label6
             // 
@@ -202,7 +187,6 @@
             label6.Size = new Size(158, 25);
             label6.TabIndex = 17;
             label6.Text = "Confirm password";
-            label6.Click += label6_Click;
             // 
             // label7
             // 
@@ -246,7 +230,6 @@
             label10.Size = new Size(63, 25);
             label10.TabIndex = 22;
             label10.Text = "Avatar";
-            label10.Click += label10_Click;
             // 
             // Register
             // 
@@ -262,7 +245,6 @@
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(label2);
             Controls.Add(btnBrowse);
             Controls.Add(txtCPassword);
             Controls.Add(txtPassword);
@@ -277,8 +259,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Register";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            Load += Register_Load;
+            Text = "Register";
             ((System.ComponentModel.ISupportInitialize)picAvatar).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -297,7 +278,6 @@
         private TextBox txtPassword;
         private TextBox txtCPassword;
         private Button btnBrowse;
-        private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;

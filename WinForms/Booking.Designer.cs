@@ -52,6 +52,7 @@
             btnBook = new Button();
             label10 = new Label();
             lblTotal = new Label();
+            btnLogout = new Button();
             ((System.ComponentModel.ISupportInitialize)flightBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)flightBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -130,7 +131,6 @@
             pictureBox1.Size = new Size(37, 36);
             pictureBox1.TabIndex = 19;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // pictureBox2
             // 
@@ -262,13 +262,23 @@
             lblTotal.Name = "lblTotal";
             lblTotal.Size = new Size(0, 32);
             lblTotal.TabIndex = 34;
-            lblTotal.Click += lblTotalCost;
+            // 
+            // btnLogout
+            // 
+            btnLogout.Location = new Point(1277, 9);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(112, 34);
+            btnLogout.TabIndex = 36;
+            btnLogout.Text = "Log Out";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // Booking
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1401, 581);
+            Controls.Add(btnLogout);
             Controls.Add(label10);
             Controls.Add(lblTotal);
             Controls.Add(btnBook);
@@ -329,5 +339,6 @@
         private Button btnBook;
         private Label label10;
         private Label lblTotal;
+        private Button btnLogout;
     }
 }

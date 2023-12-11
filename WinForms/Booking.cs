@@ -23,8 +23,10 @@ namespace AirlineBookingApp
         public int idxBooking;
         List<Flight> flights = new List<Flight>
         {
-            new Flight("FL001", DateTime.Now.AddHours(1), DateTime.Now.AddHours(2), "Domestic", "CityA", "CityB", 2000000),
-            new Flight("FL002", DateTime.Now.AddHours(3), DateTime.Now.AddHours(4), "International", "CityC", "CityD", 5000000),
+            new Flight("FL001", DateTime.Now.AddHours(1), DateTime.Now.AddHours(2), "Vietjet Air", "CityA", "CityB", 2000000),
+            new Flight("FL002", DateTime.Now.AddHours(3), DateTime.Now.AddHours(4), "Bamboo Airways", "CityC", "CityD", 5000000),
+            new Flight("FL003", DateTime.Now.AddHours(4), DateTime.Now.AddHours(5), "Vietnam Airline", "CityE", "CityF", 7000000),
+            new Flight("FL004", DateTime.Now.AddHours(3), DateTime.Now.AddHours(4), "Vietjet Air", "CityG", "CityH", 3000000),
             // Add more flights as needed
         };
         List<string> seatClasses = new List<string>
@@ -38,10 +40,13 @@ namespace AirlineBookingApp
         {
             InitializeComponent();
             BindingSource dts = new BindingSource();
+            ParentForm = Login.OriginalForm;
             dts.DataSource = typeof(Flight);
             dataGridView1.DataSource = dts;
             dts.Add(flights[0]);
             dts.Add(flights[1]);
+            dts.Add(flights[2]);
+            dts.Add(flights[3]);
             comboBox1.DataSource = seatClasses;
             dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
         }
@@ -49,25 +54,6 @@ namespace AirlineBookingApp
         private void DataGridView1_SelectionChanged(object? sender, EventArgs e)
         {
             UpdateTotalCost();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void lblTotalCost(object sender, EventArgs e)
-        {
-
         }
 
         private void Adult_ValueChanged(object sender, EventArgs e)
@@ -80,8 +66,15 @@ namespace AirlineBookingApp
             string total = (double.Parse(Adult.Value.ToString()) * AdultCost * selectedFlight.Price +
                 double.Parse(Child.Value.ToString()) * ChildCost * selectedFlight.Price +
                 double.Parse(Infant.Value.ToString()) * InfantCost * selectedFlight.Price).ToString();
-            string totalFormatted = int.Parse(total).ToString("##,##", new NumberFormatInfo() { NumberGroupSeparator = "," });
-            lblTotal.Text = $"{totalFormatted} VND";
+            string totalFormatted;
+            totalFormatted = int.Parse(total).ToString("##,##", new NumberFormatInfo() { NumberGroupSeparator = "," });
+            if (String.IsNullOrEmpty(totalFormatted))
+            {
+                lblTotal.Text = "0 VND";
+            }
+            else
+                lblTotal.Text = $"{totalFormatted} VND";
+
         }
 
         private void Child_ValueChanged(object sender, EventArgs e)
@@ -97,12 +90,22 @@ namespace AirlineBookingApp
         private void btnBook_Click(object sender, EventArgs e)
         {
             Flight selectedFlight = (Flight)dataGridView1.CurrentRow.DataBoundItem;
-            MessageBox.Show($"You has successful booked!\nYour booking information:\nFlight Id: {selectedFlight.FlightID}\nSeat class: {comboBox1.SelectedValue}\nTotal Cost: {lblTotal.Text}", "Confirm booking");
+            string total = lblTotal.Text;
+            if (total == "0 VND")
+            {
+                MessageBox.Show("Please select your passenger quantity", "Booking Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            MessageBox.Show($"You has successful booked!\nYour booking information:\n" +
+                $"Flight Id: {selectedFlight.FlightID}\nSeat class: {comboBox1.SelectedValue}\n" +
+                $"Total Cost: {total}", "Confirm booking", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        private void SetCurrentUser(User user)
+
+        private void btnLogout_Click(object sender, EventArgs e)
         {
-            currentUser = user;
-            currentCustomer = ParentForm.CustomerList.Find(x => x.CustomerName == currentUser.UserName);
+            this.Close();
+            ParentForm.ResetLogin = true;
+            ParentForm.Show();
         }
     }
 }

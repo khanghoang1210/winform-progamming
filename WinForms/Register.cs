@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AirlineBookingApp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,50 +24,11 @@ namespace WinForms
             ParentForm = Login.OriginalForm;
         }
 
-        private void Register_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Close();
         }
 
-
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
@@ -123,6 +85,7 @@ namespace WinForms
             ParentForm.CustomerList.Add(customer);
 
             MessageBox.Show("Register successful.", "Account Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }

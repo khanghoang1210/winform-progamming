@@ -47,7 +47,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(411, 610);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
             // 
             // checkBox1
             // 
@@ -76,7 +75,6 @@
             txtUserName.Name = "txtUserName";
             txtUserName.Size = new Size(304, 31);
             txtUserName.TabIndex = 3;
-            txtUserName.TextChanged += textUserName;
             // 
             // txtPassword
             // 
@@ -86,7 +84,6 @@
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(304, 31);
             txtPassword.TabIndex = 4;
-            txtPassword.TextChanged += txtPassword_TextChanged;
             // 
             // btnLogin
             // 
@@ -96,7 +93,7 @@
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += button1_Click;
+            btnLogin.Click += btnLogin_Click;
             // 
             // linkLabel1
             // 
@@ -108,7 +105,7 @@
             linkLabel1.TabIndex = 7;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "You don't have an account?";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            linkLabel1.LinkClicked += linkLabelRegis_LinkClicked;
             // 
             // label2
             // 
@@ -145,8 +142,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            Load += Login_Load;
+            Text = "Login";
             ResumeLayout(false);
             PerformLayout();
         }

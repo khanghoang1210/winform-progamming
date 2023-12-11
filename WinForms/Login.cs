@@ -52,7 +52,7 @@ namespace WinForms
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             if (txtUserName.Text.Length == 0)
             {
@@ -84,7 +84,7 @@ namespace WinForms
 
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabelRegis_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Register registerWindow = new Register();
             this.Hide();
