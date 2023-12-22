@@ -131,6 +131,7 @@
             txtPassword.ForeColor = SystemColors.WindowFrame;
             txtPassword.Location = new Point(402, 185);
             txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(210, 31);
             txtPassword.TabIndex = 10;
             // 
@@ -139,6 +140,7 @@
             txtCPassword.ForeColor = SystemColors.WindowFrame;
             txtCPassword.Location = new Point(636, 185);
             txtCPassword.Name = "txtCPassword";
+            txtCPassword.PasswordChar = '*';
             txtCPassword.Size = new Size(210, 31);
             txtCPassword.TabIndex = 11;
             // 
