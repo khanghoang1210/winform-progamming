@@ -131,6 +131,7 @@
             btnAdd.Text = "Add";
             btnAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 
@@ -147,6 +148,7 @@
             btnUpdate.Text = "Update";
             btnUpdate.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -163,6 +165,7 @@
             btnDelete.Text = "Delete";
             btnDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnExcel
             // 
@@ -179,6 +182,7 @@
             btnExcel.Text = "Load Data from Excel";
             btnExcel.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnExcel.UseVisualStyleBackColor = false;
+            btnExcel.Click += btnExcel_Click;
             // 
             // btnSql
             // 
@@ -195,6 +199,7 @@
             btnSql.Text = "Load Data from SQL";
             btnSql.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnSql.UseVisualStyleBackColor = false;
+            btnSql.Click += btnSql_Click;
             // 
             // btnUpdateData
             // 
@@ -221,7 +226,7 @@
             dgvLaptop.RowTemplate.Height = 33;
             dgvLaptop.Size = new Size(1079, 413);
             dgvLaptop.TabIndex = 8;
-            dgvLaptop.SelectionChanged += DgvLaptop_SelectionChanged;
+            dgvLaptop.EditingControlShowing += dgvLaptop_EditingControlShowing;
             // 
             // LaptopManagement
             // 

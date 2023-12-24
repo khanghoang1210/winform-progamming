@@ -17,3 +17,11 @@ D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\obj\Debug\net7.0-windows\Lapt
 D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\obj\Debug\net7.0-windows\ref\LaptopManagement.dll
 D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\obj\Debug\net7.0-windows\Interop.Microsoft.Office.Interop.Excel.dll
 D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\obj\Debug\net7.0-windows\LaptopManagement.csproj.ResolveComReference.cache
+D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\bin\Debug\net7.0-windows\System.Data.SqlClient.dll
+D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\bin\Debug\net7.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\bin\Debug\net7.0-windows\runtimes\win-x64\native\sni.dll
+D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\bin\Debug\net7.0-windows\runtimes\win-x86\native\sni.dll
+D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\bin\Debug\net7.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\bin\Debug\net7.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\obj\Debug\net7.0-windows\LaptopManagement.csproj.AssemblyReference.cache
+D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\obj\Debug\net7.0-windows\LaptopManagement.csproj.CopyComplete

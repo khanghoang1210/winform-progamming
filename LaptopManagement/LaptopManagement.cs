@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.IO;
+using System.Net;
 using System.Windows.Forms;
 using excel = Microsoft.Office.Interop.Excel;
 
@@ -14,6 +15,8 @@ namespace LaptopManagement
         public int loadData = 0;
         static string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
         string excelFilePath = projectPath + "\\Data\\LaptopList.xlsx";
+        string connectionString =
+            "Data Source=LAPTOP-0COSK050\\SQLEXPRESS01;Initial Catalog=Laptop_Management; Integrated Security=SSPI";
         DataTable dataTable = new DataTable();
         int currentLapIndex = -1;
 
@@ -24,35 +27,7 @@ namespace LaptopManagement
             dgvLaptop.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dgvLaptop.AllowUserToOrderColumns = true;
             dgvLaptop.AllowUserToResizeColumns = true;
-            BindingSource dts = new BindingSource();
-            dts.DataSource = typeof(Laptop);
-            dgvLaptop.DataSource = dts;
-            int colCount = 11;
-            int NumDatarow = ReadDataFromFile(laptops, excelFilePath, colCount);
-            List<Laptop> subList = laptops.Select(x => new Laptop()
-            {
-                LaptopID = x.LaptopID,
-                LaptopName = x.LaptopName,
-                LaptopType = x.LaptopType,
-                ProductDate = x.ProductDate,
-                Processor = x.Processor,
-                HDD = x.HDD,
-                RAM = x.RAM,
-                Price = x.Price
-            }).ToList();
 
-            MessageBox.Show(subList[2].RAM.ToString());
-            foreach (var bi in subList)
-            {
-                dts.Add(bi);
-            }
-            //dts.AllowNew = true;
-            //dts.DataSource = dataTable;
-            //dgvLaptop.AutoGenerateColumns = false;
-            //dgvLaptop.DataSource = dts;
-            //dts.Add(new Laptop("1", "Laptop1", "Type1", DateTime.Now, "Processor1", 500, 8, 1000, "Image1.jpg"));
-            //dts.Add(new Laptop("2", "Laptop2", "Type2", DateTime.Now, "Processor2", 1000, 16, 1500, "Image2.jpg"));
-            //dts.Add(new Laptop("3", "Laptop3", "Type3", DateTime.Now, "Processor3", 750, 12, 1200, "Image3.jpg"));
         }
 
         public int ReadDataFromFile(List<Laptop> DataList, string FilePath, int colCount)
@@ -119,13 +94,143 @@ namespace LaptopManagement
             MessageBox.Show("Load Data From Excel Successful: " + (rowCount - 1).ToString() + " Records");
             return (rowCount - 1);
         }
-
-        private void DgvLaptop_SelectionChanged(object sender, EventArgs e)
+        public int ReadDataFromSQLServer(List<Laptop> DataList, string connectionString)
         {
-            if (laptops.Count == 0 || dataTable.Rows.Count == 0) return;
-            currentLapIndex = dgvLaptop.CurrentRow.Index;
+            SqlConnection conn;
+            conn = new SqlConnection(connectionString);
+            int iRow = 0;
+            int numRecords = 0;
+            try
+            {
+                conn.Open();
+                Console.WriteLine("Connection is open");
+
+                string SqlString = @"Select LaptopID,
+                                    LaptopName,
+                                    LaptopType,
+                                    ProductDate = Convert(varchar(10), CONVERT(date,ProductDate,106),103),
+                                    Processor,
+                                    HDD,RAM,Price,ImageName
+                                    From dbo.LaptopInfo";
+                using (var command = new SqlCommand(SqlString, conn))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            laptops.Add(new Laptop());
+                            laptops[iRow].LaptopID = reader.GetString(0);
+                            laptops[iRow].LaptopName = reader.GetString(1);
+                            laptops[iRow].LaptopType = reader.GetString(2);
+                            laptops[iRow].ProductDate = DateTime.ParseExact(reader.GetString(3), "dd/MM/yyyy",
+                                CultureInfo.InvariantCulture);
+                            laptops[iRow].Processor = reader.GetString(4);
+                            laptops[iRow].HDD = reader.GetInt32(5);
+                            laptops[iRow].RAM = reader.GetInt32(6);
+                            laptops[iRow].Price = reader.GetInt32(7);
+                            laptops[iRow].ImageName = reader.GetString(8);
+                            iRow++;
+                        }
+                    }
+                }
+                SqlCommand cmd = new SqlCommand("Select count(*) from LaptopInfo", conn);
+                object result = cmd.ExecuteScalar();
+                numRecords = int.Parse(result.ToString());
+                MessageBox.Show("Load Data From SQL is complete: " + numRecords.ToString() + " Records");
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can not open connection: " + ex.Message);
+
+            }
+            return numRecords;
+        }
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            loadData = 1;
+            BindingSource dts = new BindingSource();
+            dts.DataSource = typeof(Laptop);
+            dgvLaptop.DataSource = dts;
+            int colCount = 11;
+            int NumDatarow = ReadDataFromFile(laptops, excelFilePath, colCount);
+            List<Laptop> subList = laptops.Select(x => new Laptop()
+            {
+                LaptopID = x.LaptopID,
+                LaptopName = x.LaptopName,
+                LaptopType = x.LaptopType,
+                ProductDate = x.ProductDate,
+                Processor = x.Processor,
+                HDD = x.HDD,
+                RAM = x.RAM,
+                Price = x.Price
+            }).ToList();
+
+            foreach (var bi in subList)
+            {
+                dts.Add(bi);
+            }
         }
 
-    }
+        private void btnSql_Click(object sender, EventArgs e)
+        {
+            loadData = 2;
+            dataTable = new DataTable();
+            laptops.Clear();
+            int numDataRow = ReadDataFromSQLServer(laptops, connectionString);
+            List<Laptop> subList = laptops.Select(x => new Laptop()
+            {
+                LaptopID = x.LaptopID,
+                LaptopName = x.LaptopName,
+                LaptopType = x.LaptopType,
+                ProductDate = x.ProductDate,
+                Processor = x.Processor,
+                HDD = x.HDD,
+                RAM = x.RAM,
+                Price = x.Price
+            }).ToList();
 
+            BindingSource dts = new BindingSource();
+            dts.DataSource = typeof(Laptop);
+            dgvLaptop.DataSource = dts;
+            foreach (var bi in subList)
+            {
+                dts.Add(bi);
+            }
+        }
+        private void dgvLaptop_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Laptop laptop = new Laptop();
+            laptop.LaptopID = "NA";
+            laptop.LaptopName = "NA";
+            laptop.LaptopType = "NA";
+            laptop.ProductDate = DateTime.ParseExact("11/11/2011", "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            laptop.Processor = "NA";
+            laptop.HDD = 0;
+            laptop.RAM = 0;
+            laptop.Price = 0;
+            laptop.ImageName = "laptop.jpg";
+            BindingSource dts = new BindingSource();
+            dts.DataSource = typeof(Laptop);
+            dgvLaptop.DataSource = dts;
+            dts.Add(laptop);
+            MessageBox.Show("Add successful.");
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
