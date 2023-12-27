@@ -18,7 +18,8 @@ namespace LaptopManagement
         string connectionString =
             "Data Source=LAPTOP-0COSK050\\SQLEXPRESS01;Initial Catalog=Laptop_Management; Integrated Security=SSPI";
         DataTable dataTable = new DataTable();
-        int currentLapIndex = -1;
+        BindingSource dts = new BindingSource();
+
 
         public LaptopManagement()
         {
@@ -27,6 +28,10 @@ namespace LaptopManagement
             dgvLaptop.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dgvLaptop.AllowUserToOrderColumns = true;
             dgvLaptop.AllowUserToResizeColumns = true;
+
+            dts.DataSource = typeof(Laptop);
+            dgvLaptop.DataSource = dts;
+            dgvLaptop.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
         }
 
@@ -50,7 +55,7 @@ namespace LaptopManagement
             int Price = 0;
             string imageName = "";
 
-            for (int i = 2; i < rowCount; i++)
+            for (int i = 2; i <= rowCount; i++)
             {
                 for (int j = 1; j <= colCount; j++)
                 {
@@ -74,8 +79,8 @@ namespace LaptopManagement
                             RAM = Convert.ToInt32(xlRange.Cells[i, j].Value2.ToString()); break;
                         case 8:
                             Price = Convert.ToInt32(xlRange.Cells[i, j].Value2.ToString()); break;
-                        case 9:
-                            imageName = xlRange.Cells[i, j].Value2.ToString(); break;
+                            //case 9:
+                            //imageName = xlRange.Cells[i, j].Value2.ToString(); break;
                     }
                 }
                 DataList.Add(new Laptop());
@@ -149,10 +154,20 @@ namespace LaptopManagement
         private void btnExcel_Click(object sender, EventArgs e)
         {
             loadData = 1;
-            BindingSource dts = new BindingSource();
-            dts.DataSource = typeof(Laptop);
-            dgvLaptop.DataSource = dts;
+
             int colCount = 11;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = "D:\\";
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            excelFilePath = openFileDialog1.FileName;
+
             int NumDatarow = ReadDataFromFile(laptops, excelFilePath, colCount);
             List<Laptop> subList = laptops.Select(x => new Laptop()
             {
@@ -190,9 +205,6 @@ namespace LaptopManagement
                 Price = x.Price
             }).ToList();
 
-            BindingSource dts = new BindingSource();
-            dts.DataSource = typeof(Laptop);
-            dgvLaptop.DataSource = dts;
             foreach (var bi in subList)
             {
                 dts.Add(bi);
@@ -216,21 +228,152 @@ namespace LaptopManagement
             laptop.RAM = 0;
             laptop.Price = 0;
             laptop.ImageName = "laptop.jpg";
-            BindingSource dts = new BindingSource();
-            dts.DataSource = typeof(Laptop);
-            dgvLaptop.DataSource = dts;
-            dts.Add(laptop);
-            MessageBox.Show("Add successful.");
+
+            AddForm.selectedLaptop = laptop;
+            AddForm.isEdit = false;
+            AddForm addForm = new AddForm();
+
+            addForm.ShowDialog();
+
+            laptops.Add(AddForm.selectedLaptop);
+            dts.Add(AddForm.selectedLaptop);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (dgvLaptop.SelectedRows.Count != 0)
+            {
+                DataGridViewRow row = this.dgvLaptop.SelectedRows[0];
+                AddForm.selectedLaptop = (Laptop)row.DataBoundItem;
+                AddForm.isEdit = true;
+                AddForm addForm = new AddForm();
+
+                addForm.ShowDialog();
+                for (int i = 0; i < laptops.Count; i++)
+                {
+                    if (laptops[i].LaptopID == AddForm.selectedLaptop.LaptopID)
+                    {
+                        laptops[i] = AddForm.selectedLaptop;
+                        dts[i] = AddForm.selectedLaptop;
+                    }
+                }
+            }
 
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (dgvLaptop.SelectedRows.Count != 0)
+            {
+                DataGridViewRow row = this.dgvLaptop.SelectedRows[0];
+                Laptop laptop = (Laptop)row.DataBoundItem;
+                string question = "Do you want to delete laptop:" + laptop.LaptopID;
+                DialogResult result = MessageBox.Show(question, "Delete", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    for (int i = 0; i < laptops.Count; i++)
+                    {
+                        if (laptops[i].LaptopID == laptop.LaptopID)
+                        {
+                            laptops.RemoveAt(i);
+                            dts.RemoveAt(i);
+                            MessageBox.Show("Delete successful.");
+
+                        }
+                    }
+
+                }
+            }
 
         }
+
+        private void btnUpdateData_Click(object sender, EventArgs e)
+        {
+            if (loadData == 1) WriteDataToExcelFile(laptops, excelFilePath);
+            else WriteDataToSQLServer(laptops, connectionString);
+        }
+        public void WriteDataToExcelFile(List<Laptop> DataList, string excelFilePath)
+        {
+            excel.Application xlApp = new excel.Application();
+            excel.Workbook xlWorkbook = xlApp.Workbooks.Open(excelFilePath);
+            excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
+            excel.Range xlRange;
+            string[,] Data = new string[1, 10];
+            int idxRow = 2;
+            foreach (Laptop laptop in DataList)
+            {
+                Data[0, 0] = laptop.LaptopID;
+                Data[0, 1] = laptop.LaptopName;
+                Data[0, 2] = laptop.LaptopType;
+                Data[0, 3] = laptop.ProductDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+                Data[0, 4] = laptop.Processor;
+                Data[0, 5] = laptop.HDD.ToString();
+                Data[0, 6] = laptop.RAM.ToString();
+                Data[0, 7] = laptop.Price.ToString();
+                xlRange = xlWorksheet.get_Range("A" + idxRow.ToString(), "I" + idxRow.ToString());
+                xlRange.Value2 = Data;
+                idxRow++;
+            }
+            xlWorkbook.Save();
+            xlWorkbook.Close();
+            xlApp.Quit();
+            MessageBox.Show("Update to Data Source Excel successful.");
+        }
+
+        public void WriteDataToSQLServer(List<Laptop> DataList, string connectionString)
+        {
+            SqlConnection conn;
+            SqlCommand cmd = new SqlCommand();
+            string query;
+            conn = new SqlConnection(connectionString);
+            try
+            {
+                conn.Open();
+                Console.WriteLine("Connectione is open");
+                query = "TRUNCATE TABLE LaptopInfo";
+                cmd.CommandText = query;
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
+                query = @"INSERT INTO LaptopInfo(LaptopID, LaptopName, LaptopType,
+                        ProductDate,Processor, HDD, RAM, Price, ImageName)";
+                query += @"VALUES (@LaptopID, @LaptopName, @LaptopType,
+                        @ProductDate, @Processor, @HDD, @RAM, @Price, @ImageName)";
+                cmd.CommandText = query;
+                cmd.Connection = conn;
+
+                cmd.Parameters.Add(new SqlParameter("@LaptopID", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@LaptopName", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@LaptopType", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@ProductDate", SqlDbType.DateTime));
+                cmd.Parameters.Add(new SqlParameter("@Processor", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@HDD", SqlDbType.Int));
+                cmd.Parameters.Add(new SqlParameter("@RAM", SqlDbType.Int));
+                cmd.Parameters.Add(new SqlParameter("@Price", SqlDbType.Int));
+                cmd.Parameters.Add(new SqlParameter("@ImageName", SqlDbType.VarChar));
+
+                foreach (Laptop laptop in DataList)
+                {
+                    cmd.Parameters[0].Value = laptop.LaptopID;
+                    cmd.Parameters[1].Value = laptop.LaptopName;
+                    cmd.Parameters[2].Value = laptop.LaptopType;
+                    cmd.Parameters[3].Value = laptop.ProductDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+                    cmd.Parameters[4].Value = laptop.Processor;
+                    cmd.Parameters[5].Value = laptop.HDD;
+                    cmd.Parameters[6].Value = laptop.RAM;
+                    cmd.Parameters[7].Value = laptop.Price;
+                    cmd.Parameters[8].Value = laptop.ImageName;
+
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can not open connection: " + ex.Message);
+            }
+            MessageBox.Show("Update to DataSource into SQL Server Successful.");
+        }
+
     }
 }

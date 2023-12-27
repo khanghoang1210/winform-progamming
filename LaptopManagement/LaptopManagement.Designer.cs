@@ -31,11 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LaptopManagement));
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            txtSearch = new TextBox();
-            cbSearch = new ComboBox();
-            pictureBox2 = new PictureBox();
-            label2 = new Label();
-            label3 = new Label();
             btnAdd = new Button();
             btnUpdate = new Button();
             btnDelete = new Button();
@@ -44,7 +39,6 @@
             btnUpdateData = new Button();
             dgvLaptop = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvLaptop).BeginInit();
             SuspendLayout();
             // 
@@ -68,53 +62,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(1110, 106);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(219, 31);
-            txtSearch.TabIndex = 2;
-            // 
-            // cbSearch
-            // 
-            cbSearch.FormattingEnabled = true;
-            cbSearch.Location = new Point(929, 106);
-            cbSearch.Name = "cbSearch";
-            cbSearch.Size = new Size(175, 33);
-            cbSearch.TabIndex = 4;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(1335, 106);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(30, 30);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 5;
-            pictureBox2.TabStop = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ForeColor = SystemColors.HotTrack;
-            label2.Location = new Point(930, 82);
-            label2.Name = "label2";
-            label2.Size = new Size(78, 21);
-            label2.TabIndex = 6;
-            label2.Text = "Search by";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.ForeColor = SystemColors.ControlDark;
-            label3.Location = new Point(1110, 82);
-            label3.Name = "label3";
-            label3.Size = new Size(132, 21);
-            label3.TabIndex = 7;
-            label3.Text = "Enter information";
             // 
             // btnAdd
             // 
@@ -216,6 +163,7 @@
             btnUpdateData.Text = "Update to DataSource";
             btnUpdateData.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnUpdateData.UseVisualStyleBackColor = false;
+            btnUpdateData.Click += btnUpdateData_Click;
             // 
             // dgvLaptop
             // 
@@ -241,17 +189,11 @@
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
             Controls.Add(dgvLaptop);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(pictureBox2);
-            Controls.Add(txtSearch);
-            Controls.Add(cbSearch);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Name = "LaptopManagement";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvLaptop).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -262,11 +204,6 @@
 
         private Label label1;
         private PictureBox pictureBox1;
-        private TextBox txtSearch;
-        private ComboBox cbSearch;
-        private PictureBox pictureBox2;
-        private Label label2;
-        private Label label3;
         private Button btnAdd;
         private Button btnUpdate;
         private Button btnDelete;

@@ -25,3 +25,4 @@ D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\bin\Debug\net7.0-windows\runt
 D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\bin\Debug\net7.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\obj\Debug\net7.0-windows\LaptopManagement.csproj.AssemblyReference.cache
 D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\obj\Debug\net7.0-windows\LaptopManagement.csproj.CopyComplete
+D:\Data\VNU-HCMUS\dotnet\WinForms\LaptopManagement\obj\Debug\net7.0-windows\LaptopManagement.AddForm.resources
