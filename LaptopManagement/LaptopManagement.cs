@@ -1,10 +1,6 @@
-using Microsoft.VisualBasic.Logging;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
-using System.IO;
-using System.Net;
-using System.Windows.Forms;
 using excel = Microsoft.Office.Interop.Excel;
 
 namespace LaptopManagement
