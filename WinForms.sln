@@ -5,7 +5,9 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirlineBookingApp", "WinForms\AirlineBookingApp.csproj", "{6703B302-F9FE-48A5-A09B-66C22CA364FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaptopManagement", "LaptopManagement\LaptopManagement.csproj", "{B01D2589-4FBE-44EC-A14A-AE1E38AD7B34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaptopManagement", "LaptopManagement\LaptopManagement.csproj", "{B01D2589-4FBE-44EC-A14A-AE1E38AD7B34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Laptop_LINQ", "Laptop-LINQ\Laptop_LINQ.csproj", "{D449676B-2715-47A2-89FF-A1AE7827C3DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B01D2589-4FBE-44EC-A14A-AE1E38AD7B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B01D2589-4FBE-44EC-A14A-AE1E38AD7B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B01D2589-4FBE-44EC-A14A-AE1E38AD7B34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D449676B-2715-47A2-89FF-A1AE7827C3DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D449676B-2715-47A2-89FF-A1AE7827C3DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D449676B-2715-47A2-89FF-A1AE7827C3DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D449676B-2715-47A2-89FF-A1AE7827C3DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net4.6.2</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -21,11 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="netstandard-System.Data.Linq" Version="1.0.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="System.Data.Linq" />
   </ItemGroup>
 
   <ItemGroup>

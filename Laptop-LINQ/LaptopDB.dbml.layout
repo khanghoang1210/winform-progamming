@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LaptopDB">
+  <DataContextMoniker Name="/LaptopDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ff1151ee-aff7-4f13-93da-4afe649c24e8" absoluteBounds="0.875, 1.125, 2, 2.5401025390625">
+      <DataClassMoniker Name="/LaptopDBDataContext/LaptopInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="37c019d2-a5e2-4c00-836f-873f0010f259" absoluteBounds="0.89000000000000012, 1.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

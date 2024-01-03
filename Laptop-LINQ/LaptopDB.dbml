@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Laptop_Management" Class="LaptopDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-0COSK050;Initial Catalog=Laptop_Management;Integrated Security=True" SettingsObjectName="Laptop_LINQ.Properties.Settings" SettingsPropertyName="Laptop_ManagementConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.LaptopInfo" Member="LaptopInfos">
+    <Type Name="LaptopInfo">
+      <Column Name="LaptopID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LaptopName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="LaptopType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ProductDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Processor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="HDD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RAM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
