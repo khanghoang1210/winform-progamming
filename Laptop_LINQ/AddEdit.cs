@@ -14,8 +14,9 @@ namespace Laptop_LINQ
 {
     public partial class AddEdit : Form
     {
-        static public Laptop selectedLaptop;
+        static public LaptopInfo selectedLaptop;
         static public bool isEdit;
+        LaptopDBDataContext db = new LaptopDBDataContext();
         public AddEdit()
         {
             InitializeComponent();
@@ -23,7 +24,6 @@ namespace Laptop_LINQ
             {
                 btnAdd.Text = "Edit";
                 lbTitle.Text = "Edit Laptop";
-                txtId.Text = selectedLaptop.LaptopID;
                 txtName.Text = selectedLaptop.LaptopName;
                 cbType.Text = selectedLaptop.LaptopType;
                 dpDate.Value = selectedLaptop.ProductDate;
@@ -39,10 +39,8 @@ namespace Laptop_LINQ
                 btnAdd.Text = "Add";
             }
         }
-
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click_1(object sender, EventArgs e)
         {
-            selectedLaptop.LaptopID = txtId.Text;
             selectedLaptop.LaptopName = txtName.Text;
             selectedLaptop.LaptopType = cbType.Text;
             selectedLaptop.ProductDate = dpDate.Value;

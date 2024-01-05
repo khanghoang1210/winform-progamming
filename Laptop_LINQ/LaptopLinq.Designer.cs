@@ -39,7 +39,6 @@ namespace Laptop_LINQ
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
             this.btnSql = new System.Windows.Forms.Button();
-            this.btnUpdateData = new System.Windows.Forms.Button();
             this.dgvLaptop = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLaptop)).BeginInit();
@@ -73,7 +72,7 @@ namespace Laptop_LINQ
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnAdd.Location = new System.Drawing.Point(159, 85);
+            this.btnAdd.Location = new System.Drawing.Point(167, 85);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -90,7 +89,7 @@ namespace Laptop_LINQ
             this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnUpdate.Location = new System.Drawing.Point(279, 85);
+            this.btnUpdate.Location = new System.Drawing.Point(270, 85);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -99,6 +98,7 @@ namespace Laptop_LINQ
             this.btnUpdate.Text = "Update";
             this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
             // 
             // btnDelete
             // 
@@ -106,7 +106,7 @@ namespace Laptop_LINQ
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.ForeColor = System.Drawing.Color.Red;
-            this.btnDelete.Location = new System.Drawing.Point(408, 85);
+            this.btnDelete.Location = new System.Drawing.Point(389, 85);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -115,6 +115,7 @@ namespace Laptop_LINQ
             this.btnDelete.Text = "Delete";
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
             // btnExcel
             // 
@@ -130,7 +131,7 @@ namespace Laptop_LINQ
             this.btnSql.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSql.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSql.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSql.Location = new System.Drawing.Point(1013, 189);
+            this.btnSql.Location = new System.Drawing.Point(764, 440);
             this.btnSql.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSql.Name = "btnSql";
             this.btnSql.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -139,22 +140,7 @@ namespace Laptop_LINQ
             this.btnSql.Text = "Load Data from SQL";
             this.btnSql.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnSql.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdateData
-            // 
-            this.btnUpdateData.BackColor = System.Drawing.Color.White;
-            this.btnUpdateData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnUpdateData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateData.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnUpdateData.Location = new System.Drawing.Point(1013, 251);
-            this.btnUpdateData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnUpdateData.Name = "btnUpdateData";
-            this.btnUpdateData.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnUpdateData.Size = new System.Drawing.Size(215, 38);
-            this.btnUpdateData.TabIndex = 14;
-            this.btnUpdateData.Text = "Update to DataSource";
-            this.btnUpdateData.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnUpdateData.UseVisualStyleBackColor = false;
+            this.btnSql.Click += new System.EventHandler(this.btnSql_Click_1);
             // 
             // dgvLaptop
             // 
@@ -164,7 +150,7 @@ namespace Laptop_LINQ
             this.dgvLaptop.Name = "dgvLaptop";
             this.dgvLaptop.RowHeadersWidth = 62;
             this.dgvLaptop.RowTemplate.Height = 33;
-            this.dgvLaptop.Size = new System.Drawing.Size(971, 330);
+            this.dgvLaptop.Size = new System.Drawing.Size(957, 289);
             this.dgvLaptop.TabIndex = 8;
             // 
             // LaptopLinq
@@ -172,8 +158,7 @@ namespace Laptop_LINQ
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1255, 489);
-            this.Controls.Add(this.btnUpdateData);
+            this.ClientSize = new System.Drawing.Size(998, 489);
             this.Controls.Add(this.btnSql);
             this.Controls.Add(this.btnExcel);
             this.Controls.Add(this.btnDelete);
@@ -202,7 +187,6 @@ namespace Laptop_LINQ
         private Button btnDelete;
         private Button btnExcel;
         private Button btnSql;
-        private Button btnUpdateData;
         private DataGridView dgvLaptop;
     }
 }

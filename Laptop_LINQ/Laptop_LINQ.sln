@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaptopLinQ", "LaptopLinQ\LaptopLinQ.csproj", "{A57147A9-B426-438C-A401-F6554C5F8C13}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Laptop_LINQ", "Laptop_LINQ.csproj", "{D449676B-2715-47A2-89FF-A1AE7827C3DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A57147A9-B426-438C-A401-F6554C5F8C13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A57147A9-B426-438C-A401-F6554C5F8C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A57147A9-B426-438C-A401-F6554C5F8C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A57147A9-B426-438C-A401-F6554C5F8C13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D449676B-2715-47A2-89FF-A1AE7827C3DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D449676B-2715-47A2-89FF-A1AE7827C3DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D449676B-2715-47A2-89FF-A1AE7827C3DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D449676B-2715-47A2-89FF-A1AE7827C3DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B219A869-4933-45E5-989A-DA69C7A9191F}
+		SolutionGuid = {BB6A9CE4-0E2D-44AF-AD79-22A268E72CD3}
 	EndGlobalSection
 EndGlobal

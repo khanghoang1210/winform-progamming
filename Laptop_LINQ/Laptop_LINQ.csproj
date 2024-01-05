@@ -53,6 +53,9 @@
     <Compile Include="AddEdit.Designer.cs">
       <DependentUpon>AddEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="LaptopDB.cs">
+      <DependentUpon>LaptopDB.dbml</DependentUpon>
+    </Compile>
     <Compile Include="LaptopDB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -86,7 +86,7 @@ namespace Laptop_LINQ
 		
 		private string _LaptopType;
 		
-		private System.Nullable<System.DateTime> _ProductDate;
+		private DateTime _ProductDate;
 		
 		private string _Processor;
 		
@@ -97,6 +97,7 @@ namespace Laptop_LINQ
 		private System.Nullable<int> _Price;
 		
 		private string _ImageName;
+	
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -188,7 +189,7 @@ namespace Laptop_LINQ
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductDate", DbType="Date")]
-		public System.Nullable<System.DateTime> ProductDate
+		public DateTime ProductDate
 		{
 			get
 			{
